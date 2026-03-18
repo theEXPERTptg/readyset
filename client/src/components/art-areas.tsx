@@ -68,7 +68,7 @@ export function ArtAreas() {
             return (
               <a
                 key={art.id}
-                href={`/educacao?area=${art.id}`}
+                href={`/arte/${art.id}`}
                 className="group flex flex-col justify-between border border-card-border bg-card/80 hover:bg-card hover:border-primary/60 hover:-translate-y-1 transition-all duration-200 p-5 rounded-xl cursor-pointer"
               >
                 <div className="flex items-center justify-between mb-4 gap-3">
