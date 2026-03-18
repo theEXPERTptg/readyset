@@ -2,6 +2,7 @@ import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Events } from "@/components/events";
+import { ArtAreas } from "@/components/art-areas";
 import { Facebook, Instagram, Mail } from "lucide-react";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       
       <main>
         <Hero />
+        <ArtAreas />
         <About />
         <Events />
       </main>

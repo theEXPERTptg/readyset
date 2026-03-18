@@ -8,30 +8,30 @@
   --font-body: 'Manrope', sans-serif;
   --font-art: 'Syne', sans-serif;
   
-  --color-background: hsl(0 0% 5%);
-  --color-foreground: hsl(0 0% 95%);
+  --color-background: hsl(38 100% 96%); /* Fundo creme claro artístico */
+  --color-foreground: hsl(25 30% 20%);  /* Texto castanho suave */
   
-  --color-primary: hsl(14 100% 55%); /* Vibrant Orange/Red */
+  --color-primary: hsl(20 92% 52%); /* Laranja quente artístico */
   --color-primary-foreground: hsl(0 0% 100%);
   
-  --color-secondary: hsl(0 0% 15%);
-  --color-secondary-foreground: hsl(0 0% 98%);
+  --color-secondary: hsl(33 40% 85%); /* Bege suave para blocos */
+  --color-secondary-foreground: hsl(25 30% 20%);
   
-  --color-muted: hsl(0 0% 20%);
-  --color-muted-foreground: hsl(0 0% 60%);
+  --color-muted: hsl(33 40% 90%);
+  --color-muted-foreground: hsl(25 15% 40%);
   
-  --color-accent: hsl(14 100% 55%);
+  --color-accent: hsl(340 72% 65%); /* Rosa artístico */
   --color-accent-foreground: hsl(0 0% 100%);
   
-  --color-card: hsl(0 0% 8%);
-  --color-card-foreground: hsl(0 0% 95%);
-  --color-card-border: hsl(0 0% 15%);
+  --color-card: hsl(33 40% 94%);
+  --color-card-foreground: hsl(25 30% 20%);
+  --color-card-border: hsl(30 20% 75%);
   
-  --color-border: hsl(0 0% 15%);
-  --color-input: hsl(0 0% 15%);
-  --color-ring: hsl(14 100% 55%);
+  --color-border: hsl(30 20% 75%);
+  --color-input: hsl(33 40% 94%);
+  --color-ring: hsl(20 92% 52%);
   
-  --radius: 0rem; /* Brutalist - no rounded corners */
+  --radius: 0.75rem; /* Cantos ligeiramente arredondados para um ar mais suave */
 }
 
 @layer base {
@@ -40,7 +40,8 @@
   }
   body {
     @apply font-body antialiased bg-background text-foreground selection:bg-primary selection:text-white;
-    background-image: url('/assets/noise.png');
+    background-image: radial-gradient(circle at top left, rgba(255, 182, 193, 0.45), transparent 55%),
+                      radial-gradient(circle at bottom right, rgba(255, 228, 181, 0.55), transparent 60%);
   }
   
   h1, h2, h3, h4, h5, h6 {
