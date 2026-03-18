@@ -43,7 +43,7 @@ export function ArtAreas() {
   return (
     <section
       id="areas-artisticas"
-      className="py-20 px-6 md:px-12 bg-secondary/40 text-foreground"
+      className="py-20 px-6 md:px-12 bg-gradient-to-br from-secondary/5 via-background to-accent/5 text-foreground"
     >
       <div className="max-w-7xl mx-auto space-y-10">
         <header className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -69,18 +69,18 @@ export function ArtAreas() {
               <a
                 key={art.id}
                 href={`/arte/${art.id}`}
-                className="group flex flex-col justify-between border border-card-border bg-card/80 hover:bg-card hover:border-primary/60 hover:-translate-y-1 transition-all duration-200 p-5 rounded-xl cursor-pointer"
+                className="group flex flex-col justify-between border border-border bg-card/90 hover:bg-card hover:border-accent/60 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 p-5 rounded-xl cursor-pointer"
               >
                 <div className="flex items-center justify-between mb-4 gap-3">
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary border border-primary/30">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent border border-accent/30">
                       <Icon className="w-5 h-5" />
                     </span>
                     <h3 className="text-xl font-display tracking-tight normal-case">
                       {art.label}
                     </h3>
                   </div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground group-hover:text-primary">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground group-hover:text-accent">
                     Explorar
                   </span>
                 </div>
@@ -89,7 +89,7 @@ export function ArtAreas() {
                   {art.description}
                 </p>
 
-                <span className="mt-auto inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-primary group-hover:gap-3">
+                <span className="mt-auto inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-secondary group-hover:gap-3">
                   Ver atividades
                   <span aria-hidden>→</span>
                 </span>

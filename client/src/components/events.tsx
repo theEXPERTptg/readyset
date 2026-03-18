@@ -34,20 +34,20 @@ const events = [
 
 export function Events() {
   return (
-    <section id="events" className="py-24 px-6 md:px-12 bg-background text-foreground border-t border-white/10">
+    <section id="events" className="py-24 px-6 md:px-12 bg-gradient-to-r from-background via-accent/3 to-secondary/3 text-foreground border-t border-border">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-16">
-          <h2 className="text-5xl md:text-7xl font-display uppercase">Próximos<br/><span className="text-primary">Eventos</span></h2>
-          <button className="hidden md:block border border-white/20 px-6 py-3 uppercase font-mono text-xs hover:bg-primary hover:border-primary transition-colors">
+          <h2 className="text-5xl md:text-7xl font-display uppercase">Próximos<br/><span className="text-secondary">Eventos</span></h2>
+          <button className="hidden md:block border border-border px-6 py-3 uppercase font-mono text-xs hover:bg-accent hover:border-accent hover:text-white transition-colors">
             Ver Agenda Completa
           </button>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {events.map((event) => (
-            <div key={event.id} className="group relative bg-card border border-white/10 overflow-hidden hover:border-primary/50 transition-colors">
+            <div key={event.id} className="group relative bg-card border border-border overflow-hidden hover:border-accent/50 hover:shadow-lg transition-all duration-300 rounded-lg">
               <div className="aspect-[4/5] overflow-hidden relative">
-                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-multiply" />
+                <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <img 
                   src={event.image} 
                   alt={event.title}
@@ -68,7 +68,7 @@ export function Events() {
                   {event.title}
                 </h3>
                 
-                <button className="w-full mt-4 border border-white/10 py-3 text-xs uppercase font-mono hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2">
+                <button className="w-full mt-4 border border-border py-3 text-xs uppercase font-mono hover:bg-secondary hover:text-white transition-colors flex items-center justify-center gap-2 rounded-md">
                   <Ticket className="w-3 h-3" /> Reservar
                 </button>
               </div>

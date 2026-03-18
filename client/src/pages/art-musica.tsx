@@ -5,13 +5,13 @@ export default function ArtMusica() {
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
 
-      <main className="pt-28 pb-20 px-6 md:px-12">
+      <main className="pt-28 pb-20 px-6 md:px-12 bg-gradient-to-br from-background via-accent/3 to-secondary/3">
         <section className="max-w-5xl mx-auto space-y-10">
           <header className="space-y-4">
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
+            <p className="font-mono text-xs uppercase tracking-[0.25em] text-secondary">
               Artes ReadySet · Música
             </p>
-            <h1 className="text-4xl md:text-6xl font-display leading-[0.9]">
+            <h1 className="text-4xl md:text-6xl font-display leading-[0.9] text-primary">
               Música
               <br />
               na ReadySet
@@ -60,6 +60,14 @@ export default function ArtMusica() {
           </section>
         </section>
       </main>
+
+      <footer className="bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 border-t border-border/50 py-12 px-6 md:px-12">
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="font-mono text-sm uppercase tracking-widest text-muted-foreground">
+            <span className="text-primary">ReadySet</span> • Machico • Madeira • Portugal
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
