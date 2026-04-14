@@ -1,7 +1,7 @@
-import { Navigation } from "@/components/navigation";
-import { Hero } from "@/components/hero";
-import { About } from "@/components/about";
-import { Events } from "@/components/events";
+import { Navigation } from "../components/navigation.tsx";
+import { Hero } from "../components/hero.tsx";
+import { About } from "../components/about.tsx";
+import { Events } from "../components/events.tsx";
 import { Facebook, Instagram, Mail } from "lucide-react";
 
 export default function Home() {
