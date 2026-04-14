@@ -1,5 +1,4 @@
 import { Calendar, MapPin, Ticket } from "lucide-react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "./ui/badge";
 
 const events = [
@@ -34,41 +33,53 @@ const events = [
 
 export function Events() {
   return (
-    <section id="events" className="py-24 px-6 md:px-12 bg-gradient-to-r from-background via-accent/3 to-secondary/3 text-foreground border-t border-border">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-end mb-16">
-          <h2 className="text-5xl md:text-7xl font-display uppercase">Próximos<br/><span className="text-secondary">Eventos</span></h2>
-          <button className="hidden md:block border border-border px-6 py-3 uppercase font-mono text-xs hover:bg-accent hover:border-accent hover:text-white transition-colors">
-            Ver Agenda Completa
+    <section id="events" className="section-pad">
+      <div className="container-page">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-12">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.35em] text-muted-foreground mb-3">
+              Agenda
+            </p>
+            <h2 className="text-5xl md:text-7xl font-display uppercase">
+              Próximos
+              <br />
+              <span className="text-secondary">Eventos</span>
+            </h2>
+          </div>
+          <button className="btn-ghost w-full md:w-auto">
+            Ver agenda completa
           </button>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-4">
           {events.map((event) => (
-            <div key={event.id} className="group relative bg-card border border-border overflow-hidden hover:border-accent/50 hover:shadow-lg transition-all duration-300 rounded-lg">
-              <div className="aspect-[4/5] overflow-hidden relative">
-                <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+            <div
+              key={event.id}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="aspect-[16/11] overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/25 via-transparent to-accent/25 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <img 
                   src={event.image} 
                   alt={event.title}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-110"
                 />
-                <Badge className="absolute top-4 right-4 bg-primary text-white border-none text-xs font-mono uppercase rounded-none">
+                <Badge className="absolute top-4 right-4 bg-primary text-white border-none text-xs font-mono uppercase rounded-full px-3 py-1">
                   {event.type}
                 </Badge>
               </div>
               
-              <div className="p-6 space-y-4">
+              <div className="p-4 space-y-3">
                 <div className="flex items-center gap-4 text-xs font-mono text-muted-foreground">
                   <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {event.date}</span>
                   <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {event.location}</span>
                 </div>
                 
-                <h3 className="text-2xl font-display uppercase leading-none group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-display uppercase leading-none group-hover:text-primary transition-colors">
                   {event.title}
                 </h3>
                 
-                <button className="w-full mt-4 border border-border py-3 text-xs uppercase font-mono hover:bg-secondary hover:text-white transition-colors flex items-center justify-center gap-2 rounded-md">
+                <button className="w-full mt-2 btn-primary rounded-xl">
                   <Ticket className="w-3 h-3" /> Reservar
                 </button>
               </div>

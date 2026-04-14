@@ -9,6 +9,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  publicDir: path.resolve(import.meta.dirname, "client", "public"),
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),

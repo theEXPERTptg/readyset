@@ -6,34 +6,35 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Manrope', sans-serif;
   --font-art: 'Syne', sans-serif;
   
-  --color-background: hsl(45 20% 95%);
-  --color-foreground: hsl(25 30% 25%);
+  /* Darker, artistic palette */
+  --color-background: hsl(230 18% 10%);
+  --color-foreground: hsl(40 35% 92%);
   
-  --color-primary: hsl(25 40% 50%);
+  --color-primary: hsl(22 92% 56%); /* laranja */
   --color-primary-foreground: hsl(0 0% 100%);
   
-  --color-secondary: hsl(120 20% 60%);
+  --color-secondary: hsl(160 68% 40%); /* verde */
   --color-secondary-foreground: hsl(0 0% 100%);
   
-  --color-muted: hsl(45 10% 85%);
-  --color-muted-foreground: hsl(25 20% 40%);
+  --color-muted: hsl(230 14% 18%);
+  --color-muted-foreground: hsl(35 18% 70%);
   
-  --color-accent: hsl(200 20% 50%);
+  --color-accent: hsl(330 86% 62%); /* rosa */
   --color-accent-foreground: hsl(0 0% 100%);
   
-  --color-card: hsl(45 15% 90%);
-  --color-card-foreground: hsl(25 30% 25%);
-  --color-card-border: hsl(25 20% 70%);
+  --color-card: hsl(230 16% 13%);
+  --color-card-foreground: hsl(40 35% 92%);
+  --color-card-border: hsl(230 12% 24%);
   
-  --color-border: hsl(25 20% 70%);
-  --color-input: hsl(45 10% 85%);
-  --color-ring: hsl(25 40% 50%);
+  --color-border: hsl(230 12% 24%);
+  --color-input: hsl(230 16% 13%);
+  --color-ring: hsl(22 92% 52%);
   
-  --radius: 0.5rem; /* Rounded corners for lighter feel */
+  --radius: 1rem;
 }
 
 @layer base {
@@ -41,13 +42,95 @@
     @apply border-border;
   }
   body {
-    @apply font-body antialiased bg-background text-foreground selection:bg-primary selection:text-white;
-    background: linear-gradient(135deg, hsl(45 20% 95%) 0%, hsl(200 20% 95%) 100%);
-    filter: sepia(0.1) contrast(1.05);
+    @apply font-body antialiased bg-background text-foreground;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(255, 122, 92, 0.22), transparent 56%),
+      radial-gradient(circle at 82% 22%, rgba(16, 185, 129, 0.18), transparent 52%),
+      radial-gradient(circle at 64% 82%, rgba(236, 72, 153, 0.20), transparent 60%),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 55%),
+      linear-gradient(135deg, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
+  }
+
+  ::selection {
+    background: hsl(var(--color-primary));
+    color: white;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-wide uppercase;
+    @apply font-display uppercase;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* Layout + components helpers (CSS puro, para evitar limitações do @apply no Tailwind v4) */
+.container-page {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+}
+
+.section-pad {
+  padding-top: 3.25rem;
+  padding-bottom: 3.25rem;
+}
+
+.glass {
+  background: rgba(15, 18, 28, 0.62);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+}
+
+.card-soft {
+  background: rgba(15, 18, 28, 0.70);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+}
+
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.8rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: transform 150ms ease, opacity 150ms ease, background 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+  user-select: none;
+}
+
+.btn-primary {
+  color: white;
+  background: linear-gradient(90deg, hsl(var(--color-primary)) 0%, hsl(var(--color-accent)) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 30px rgba(236, 72, 153, 0.22);
+}
+.btn-primary:hover { opacity: 0.96; box-shadow: 0 16px 32px rgba(236, 72, 153, 0.22); }
+.btn-primary:active { transform: translateY(1px); }
+
+.btn-ghost {
+  color: hsl(var(--color-foreground));
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.10); }
+.btn-ghost:active { transform: translateY(1px); }
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+  .section-pad {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
 
