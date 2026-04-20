@@ -1,3 +1,3 @@
 # readyset
 ReadySet Arts Association Website
-Temporary Static version (IN USE)
+Temporary Static version (IN USE, UPDATED)
